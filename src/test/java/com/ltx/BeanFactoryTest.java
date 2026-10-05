@@ -1,7 +1,7 @@
 package com.ltx;
 
 import com.ltx.config.BeanFactoryConfig;
-import com.ltx.constant.Constant;
+import com.ltx.constant.Constants;
 import com.ltx.entity.Bean2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -20,7 +20,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * 测试BeanFactory功能
+ * 底层 BeanFactory 测试类用于验证后处理器执行机制
+ *
+ * @author tianxing
  */
 public class BeanFactoryTest {
 
@@ -29,14 +31,14 @@ public class BeanFactoryTest {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         // 加载xml配置文件
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-        reader.loadBeanDefinitions(new ClassPathResource(Constant.CLASS_PATH_CONFIG_LOCATION));
-        reader.loadBeanDefinitions(new FileSystemResource(Constant.FILE_SYSTEM_CONFIG_LOCATION));
+        reader.loadBeanDefinitions(new ClassPathResource(Constants.CLASS_PATH_CONFIG_LOCATION));
+        reader.loadBeanDefinitions(new FileSystemResource(Constants.FILE_SYSTEM_CONFIG_LOCATION));
         // 获取bean定义
         AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(BeanFactoryConfig.class)
                 .setScope(BeanDefinition.SCOPE_SINGLETON)
                 .getBeanDefinition();
         // 注册bean定义
-        beanFactory.registerBeanDefinition(Constant.BEAN_NAME, beanDefinition);
+        beanFactory.registerBeanDefinition(Constants.BEAN_NAME, beanDefinition);
         // BeanFactory添加注解相关的后处理器
         AnnotationConfigUtils.registerAnnotationConfigProcessors(beanFactory);
         // 执行BeanFactoryPostProcessor

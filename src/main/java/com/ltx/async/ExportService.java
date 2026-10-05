@@ -4,6 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+/**
+ * 导出服务类
+ *
+ * @author tianxing
+ */
 @Service
 @Slf4j
 public class ExportService {

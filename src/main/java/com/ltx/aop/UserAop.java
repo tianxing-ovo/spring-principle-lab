@@ -1,19 +1,26 @@
 package com.ltx.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * 用户切面类
+ *
+ * @author tianxing
+ */
 @Aspect
 @Component
+@Slf4j
 public class UserAop {
 
     /**
      * 切入点
      */
-    @Pointcut("execution(public void com.ltx.aop.UserService.hello())")
+    @Pointcut("execution(public void com.ltx.aop.UserService.printProxy())")
     public void pointcut() {
     }
 
@@ -22,8 +29,8 @@ public class UserAop {
      */
     @Before("pointcut()")
     public void before() {
-        System.out.println("Before Aop");
-        // 打印代理类类名
-        System.out.println(AopContext.currentProxy().getClass().getName());
+        log.info("Before Aop");
+        // 打印代理对象类名
+        log.info("{}", AopContext.currentProxy().getClass().getName());
     }
 }

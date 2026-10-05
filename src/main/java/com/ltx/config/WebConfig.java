@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.Controller;
 
+/**
+ * 网络服务配置类
+ *
+ * @author tianxing
+ */
 @Configuration
 public class WebConfig {
     @Bean

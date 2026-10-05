@@ -1,11 +1,16 @@
 package com.ltx.entity;
 
+import jakarta.annotation.Resource;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.Resource;
-
-
+/**
+ * 示例组件二
+ *
+ * @author tianxing
+ */
 @Data
+@Slf4j
 public class Bean2 {
 
     @Resource
@@ -13,10 +18,10 @@ public class Bean2 {
 
     public Bean2(Bean1 bean1) {
         this.bean1 = bean1;
-        System.out.println("有参构造Bean2");
+        log.info("有参构造Bean2");
     }
 
     public Bean2() {
-        System.out.println("无参构造Bean2");
+        log.info("无参构造Bean2");
     }
 }
