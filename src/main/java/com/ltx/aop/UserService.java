@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     public void printProxy() {
-        // 打印目标对象类名
+        // 打印目标对象类名: com.ltx.aop.UserService
         log.info("Target instance (this): {}", this.getClass().getName());
-        // 打印代理对象类名
+        // 打印代理对象类名: com.ltx.aop.UserService$$SpringCGLIB$$0
         log.info("Proxy instance: {}", AopContext.currentProxy().getClass().getName());
     }
 }
