@@ -1,5 +1,7 @@
 # spring-principle-lab
 
+[English](README.en.md) | [简体中文](README.md)
+
 In-Depth Laboratory Project for Spring Core Underlying Principles
 
 ---
